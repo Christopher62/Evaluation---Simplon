@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style/css/gregory.css">
   </head>
   <body>
-    <p>test branche</p>
     <script src="https://use.fontawesome.com/8d66db2fbe.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
