@@ -16,11 +16,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php"></a>
+        <a class="navbar-brand" href=""></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active" styyle="margin-top:0"><a href="index.php">Home</a></li>
+          <li class="active" styyle="margin-top:0"><a href="">Home</a></li>
           <li><a href="">...</a></li>
           <li><a href="">...</a></li>
         </ul>
