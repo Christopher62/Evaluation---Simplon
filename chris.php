@@ -20,13 +20,13 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active" styyle="margin-top:0"><a href="">Home</a></li>
+          <li><a href="">Home</a></li>
           <li><a href="">...</a></li>
           <li><a href="">...</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li>Sign Up</li>
-          <li>Log In</li>
+          <li><a href="">Sign Up</a></li>
+          <li><a href="">Log In</a></li>
         </ul>
       </div>
     </div>

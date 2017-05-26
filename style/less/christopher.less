@@ -1,9 +1,15 @@
 // out: ../css/christopher.css, compress: true
+@text-transform: uppercase;
+@colorlink: #FFF;
 @height-logo: 22px;
-@width-logo: 30px;
+@width-logo: 24px;
 
 #navigation{
   border-radius: 0;
+  text-transform: @text-transform;
+  a{
+    color: @colorlink;
+  }
   #logo{
     height: @height-logo;
     width: @width-logo;
