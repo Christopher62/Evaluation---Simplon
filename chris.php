@@ -25,8 +25,8 @@
           <li><a href="">...</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="">Sign Up</a></li>
-          <li><a href="">Log In</a></li>
+          <li><a href="pages/inscription.php">Sign Up</a></li>
+          <li><a href="pages/connexion.php">Log In</a></li>
         </ul>
       </div>
     </div>
