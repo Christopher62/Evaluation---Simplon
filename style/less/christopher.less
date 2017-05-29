@@ -3,16 +3,25 @@
 @colorlink: #FFF;
 @height-logo: 22px;
 @width-logo: 24px;
+@coldropdown-a: #000;
 
 #navigation{
   border-radius: 0;
   text-transform: @text-transform;
   a{
     color: @colorlink;
+    outline: none;
   }
   #logo{
     height: @height-logo;
     width: @width-logo;
+  }
+  .dropdown a{
+    text-transform: none;
+  }
+  .dropdown li a{
+    color: @coldropdown-a;
+    text-transform: none;
   }
 }
 #toTop{
