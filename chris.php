@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/css/greg.css">
   </head>
   <body>
+    <a href="#" id="toTop" class="fa fa-chevron-up fa-2x"></a>
     <nav class="navbar navbar-inverse fixed-top" id="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -20,7 +21,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active" styyle="margin-top:0"><a href="">Home</a></li>
+          <li><a href="">Home</a></li>
           <li><a href="">...</a></li>
           <li><a href="">...</a></li>
         </ul>

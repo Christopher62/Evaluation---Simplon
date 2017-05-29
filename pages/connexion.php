@@ -16,6 +16,11 @@
         <div class="form-group">
 				  <label for="mdpconnect">Mot de passe :</label>
           <input class="form-control" type="password" name="mdpconnect" placeholder="Mot de passe">
+				  <input class="form-control" type="email" id="mailconnect" name="mailconnect" placeholder="Mail">
+        </div>
+        <div class="form-group">
+				  <label for="mdpconnect">Mot de passe :</label>
+          <input class="form-control" type="password" id="mdpconnect" name="mdpconnect" placeholder="Mot de passe">
         </div>
 				<input type="submit" name="forminscription" value="Connexion">
 			</form>
