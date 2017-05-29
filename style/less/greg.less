@@ -1,0 +1,42 @@
+// out: ../css/greg.css, compress: true
+@text-transform: uppercase;
+@colorlink: #FFF;
+@height-logo: 22px;
+@width-logo: 24px;
+body{
+  background-image: url(../../img/courecole.jpg);
+}
+#navigation{
+  border-radius: 0;
+  text-transform: @text-transform;
+  a{
+    color: @colorlink;
+    font-size: 15px;
+  }
+  #logo{
+    height: @height-logo;
+    width: @width-logo;
+  }
+}
+#Presentation{
+  background-color: rgba(220, 224, 224, 0.7);
+  margin-top: 10%;
+  h2{
+    text-align: center;
+  }
+  p{
+    font-size: 20px;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+}
+footer{
+  width: 100%;
+  background-color: rgba(220, 224, 224, 0.7);
+  bottom: 0;
+  position: absolute;
+  p{
+    text-align: center;
+  }
+}
