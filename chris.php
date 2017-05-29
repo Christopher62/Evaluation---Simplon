@@ -5,9 +5,10 @@
     <title>Evaluation - Simplon</title>
     <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css">
     <link rel="stylesheet" href="style/css/christopher.css">
-    <link rel="stylesheet" href="style/css/gregory.css">
+    <link rel="stylesheet" href="style/css/greg.css">
   </head>
   <body>
+    <a href="#" id="toTop" class="fa fa-chevron-up fa-2x"></a>
     <nav class="navbar navbar-inverse fixed-top" id="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
