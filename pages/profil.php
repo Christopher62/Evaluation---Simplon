@@ -10,11 +10,21 @@
 	<body>
 		<div align="center">
 			<h2>Profil de <!-- futur code php qui indiquera le pseudo de l'utilisateur --> </h2>
-			Pseudo = <!-- futur code php qui indiquera le pseudo de l'utilisateur -->
-
-			Mail = <!-- futur code php qui indiquera l'email de l'utilisateur -->
-			<a href="editionprofil.php">Editer mon profil</a>
-			<a href="deconnexion.php">Se déconnecter</a>
+			<table class="table table-bordered profil-table">
+				<tr>
+					<th>Pseudo</th>
+					<th>Mail</th>
+					<th>Actions</th>
+				</tr>
+				<tr>
+					<td> <!-- futur code php qui indiquera le pseudo de l'utilisateur --></td>
+					<td> <!-- futur code php qui indiquera l'email de l'utilisateur --></td>
+					<td>
+						<input onclick=window.location.href="editionprofil.php" type="button" class="btn btn-primary" name="" value="Editer mon profil">
+						<input onclick=window.location.href="deconnexion.php" type="button" class="btn btn-danger" name="" value="Déconnexion">
+					</td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>
