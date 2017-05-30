@@ -13,7 +13,7 @@ if(isset($_POST["forminscription"]))
 	if(!empty($_POST["pseudo"]) AND !empty($_POST["mail"]) AND !empty($_POST["mail2"]) AND !empty($_POST["mdp"]) AND !empty($_POST["mdp2"]))
 	{
 		$pseudolength = strlen($pseudo);
-		if ($pseudolength <= 60)
+		if ($pseudolength <= 30)
 		{
 			if (filter_var($pseudo)){
 				$reqpseudo = $cnx->prepare("SELECT * FROM membres WHERE pseudo = ?");
@@ -64,7 +64,7 @@ if(isset($_POST["forminscription"]))
 		}
 		else
 		{
-			$erreur = "Votre pseudo ne doit pas dépasser 60 caractères !";
+			$erreur = "Votre pseudo ne doit pas dépasser 30 caractères !";
 		}
 	}
 	else
