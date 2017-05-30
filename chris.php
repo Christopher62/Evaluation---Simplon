@@ -1,5 +1,8 @@
 <?php
-// futur code PHP qui va récupérer les données de sessions
+session_start();
+// Session à récupéré !
+$msg = ""; // test avant récup de session !
+$user = "jesuisuntest"; // utilisateur affiché dans la navbar en majuscule !
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,7 +33,23 @@
           <li><a href="">...</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <!-- futur code PHP qui affichera sign up / log in si l'utilisateur n'est pas connecté -->
+          <?php // si l'utilisateur est connecté affiché le "dropdown" !
+          if(isset($msg)){
+              echo '<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase">'.$user.'</span>'.'&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="pages/profil.php">Mon Profil</a></li>
+                  <li><a href="pages/editionprofil.php">Paramètres</a></li>
+                  <li class="divider"></li>
+                  <li><a href="pages/deconnexion.php">Déconnexion</a></li>
+                </ul>
+              </li>';
+            }
+            else{ // sinon affiché les liens pour l'inscription ou la connexion !
+              echo '<li><a href="pages/inscription.php">Sign Up</a></li>
+              <li><a href="pages/connexion.php">Log In</a></li>';
+            }
+            ?>
         </ul>
       </div>
     </div>
