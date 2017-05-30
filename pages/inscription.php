@@ -12,51 +12,59 @@ if(isset($_POST["forminscription"]))
 
 	if(!empty($_POST["pseudo"]) AND !empty($_POST["mail"]) AND !empty($_POST["mail2"]) AND !empty($_POST["mdp"]) AND !empty($_POST["mdp2"]))
 	{
-		if(filter_var($pseudo))
+		$pseudolength = strlen($pseudo);
+		if ($pseudolength <= 60)
 		{
-			$reqpseudo = $cnx->prepare("SELECT * FROM membres WHERE pseudo = ?");
-			$reqpseudo->execute(array($pseudo));
-			$pseudoexist = $reqpseudo->rowCount();
-			if($pseudoexist == 0){
-				if($mail == $mail2)
+			if (filter_var($pseudo)){
+				$reqpseudo = $cnx->prepare("SELECT * FROM membres WHERE pseudo = ?");
+				$reqpseudo->execute(array($pseudo));
+				$pseudoexist = $reqpseudo->rowCount();
+				if($pseudoexist == 0)
 				{
-					if(filter_var($mail, FILTER_VALIDATE_EMAIL))
+					if($mail == $mail2)
 					{
-						$reqmail = $cnx->prepare("SELECT * FROM membres WHERE mail = ?");
-						$reqmail->execute(array($mail));
-						$mailexist = $reqmail->rowCount();
-						if($mailexist == 0)
+						if(filter_var($mail, FILTER_VALIDATE_EMAIL))
 						{
-							if($mdp == $mdp2)
+							$reqmail = $cnx->prepare("SELECT * FROM membres WHERE mail = ?");
+							$reqmail->execute(array($mail));
+							$mailexist = $reqmail->rowCount();
+							if($mailexist == 0)
 							{
-								$insertmbr = $cnx->prepare("INSERT INTO membres(pseudo, mail, password, avatar) VALUES (?, ?, ?, ?)");
-								$insertmbr->execute(array($pseudo, $mail, $mdp, "default.jpg"));
-								$message = "Votre compte est créé avec succès !";
+								if($mdp == $mdp2)
+								{
+									$insertmbr = $cnx->prepare("INSERT INTO membres(pseudo, mail, password, avatar) VALUES (?, ?, ?, ?)");
+									$insertmbr->execute(array($pseudo, $mail, $mdp, "default.jpg"));
+									$message = "Votre compte a été créé avec succès !";
+								}
+								else
+								{
+									$erreur = "Vos mot de passe ne correspondent pas !";
+								}
 							}
 							else
 							{
-								$erreur = "Vos mot de passe ne correspondent pas";
+								$erreur = "Adresse e-mail déja utilisée !";
 							}
 						}
 						else
 						{
-							$erreur = "Adresse e-mail déjà utilisée !";
+							$erreur = "Votre adresse e-mail est invalide !";
 						}
 					}
 					else
 					{
-						$erreur = "Votre adresse e-mail est invalide !";
+						$erreur = "Vos mails ne correspondent pas !";
 					}
 				}
 				else
 				{
-					$erreur = "Vos mails ne correspondent pas !";
+					$erreur = "Pseudo déjà pris !";
 				}
 			}
-			else
-			{
-				$erreur = "Pseudo déjà pris";
-			}
+		}
+		else
+		{
+			$erreur = "Votre pseudo ne doit pas dépasser 60 caractères !";
 		}
 	}
 	else
