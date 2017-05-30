@@ -1,7 +1,11 @@
+<?php
+// futur code PHP qui va récupérer les données de sessions
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Evaluation - Simplon</title>
     <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css">
     <link rel="stylesheet" href="style/css/christopher.css">
@@ -26,8 +30,7 @@
           <li><a href="">...</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="pages/inscription.php">Sign Up</a></li>
-          <li><a href="pages/connexion.php">Log In</a></li>
+          <!-- futur code PHP qui affichera sign up / log in si l'utilisateur n'est pas connecté -->
         </ul>
       </div>
     </div>
