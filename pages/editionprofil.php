@@ -1,3 +1,6 @@
+<?php
+// code qui permettera de modifier le profil (si l'utilisateur est connecté !)
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -30,7 +33,7 @@
           <label for="avatar">Avatar :</label>
 				  <input id="avatar" type="file" name="avatar">
         </div>
-				<input onclick=window.location.href="profil.php" type="button" class="btn btn-warning" name="submit" value="Retour vers mon profil">
+				<input onclick=window.location.href="<?php echo "profil.php?id=".$_SESSION["id"]; ?>" type="button" class="btn btn-warning" name="submit" value="Retour vers mon profil">
 				<input type="submit" class="btn btn-success" name="submit" value="Mettre à jour mon profil">
 			</form>
 		</div>
