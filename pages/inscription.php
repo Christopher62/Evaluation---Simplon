@@ -1,7 +1,69 @@
 <?php
 
-// futur code php qui va vérifier les données de l'utilisateur !
+$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur');
 
+if(isset($_POST["forminscription"]))
+{
+	$pseudo = htmlspecialchars($_POST["pseudo"]);
+	$mail = htmlspecialchars($_POST["mail"]);
+	$mail2 = htmlspecialchars($_POST["mail2"]);
+	$mdp = sha1($_POST["mdp"]);
+	$mdp2 = sha1($_POST["mdp2"]);
+
+	if(!empty($_POST["pseudo"]) AND !empty($_POST["mail"]) AND !empty($_POST["mail2"]) AND !empty($_POST["mdp"]) AND !empty($_POST["mdp2"]))
+	{
+		if(filter_var($pseudo))
+		{
+			$reqpseudo = $cnx->prepare("SELECT * FROM membres WHERE pseudo = ?");
+			$reqpseudo->execute(array($pseudo));
+			$pseudoexist = $reqpseudo->rowCount();
+			if($pseudoexist == 0){
+				if($mail == $mail2)
+				{
+					if(filter_var($mail, FILTER_VALIDATE_EMAIL))
+					{
+						$reqmail = $cnx->prepare("SELECT * FROM membres WHERE mail = ?");
+						$reqmail->execute(array($mail));
+						$mailexist = $reqmail->rowCount();
+						if($mailexist == 0)
+						{
+							if($mdp == $mdp2)
+							{
+								$insertmbr = $cnx->prepare("INSERT INTO membres(pseudo, mail, password, avatar) VALUES (?, ?, ?, ?)");
+								$insertmbr->execute(array($pseudo, $mail, $mdp, "default.jpg"));
+								$message = "Votre compte est créé avec succès !";
+							}
+							else
+							{
+								$erreur = "Vos mot de passe ne correspondent pas";
+							}
+						}
+						else
+						{
+							$erreur = "Adresse e-mail déjà utilisée !";
+						}
+					}
+					else
+					{
+						$erreur = "Votre adresse e-mail est invalide !";
+					}
+				}
+				else
+				{
+					$erreur = "Vos mails ne correspondent pas !";
+				}
+			}
+			else
+			{
+				$erreur = "Pseudo déjà pris";
+			}
+		}
+	}
+	else
+	{
+		$erreur = "Tous les champs doivent être complétés !";
+	}
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,8 +106,18 @@
 			</div>
 			<div class="container-fluid">
 				<div class="row">
-					<!-- futur code php pour prévenir des erreurs lors de l'inscription -->
-					Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a> !
+					<span style="<?php if(isset($message) || isset($erreur)){echo "display:none";} ?>">Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a> !</span>
+					<?php
+						if(isset($erreur)){
+							echo '<font color="red">'.$erreur.'</font>';
+						}
+					?>
+					<?php
+						if(isset($message)){
+							echo '<font color="green">'.$message.'</font><br>';
+							echo '<a href="connexion.php">Connectez-vous</a> !';
+						}
+					?>
 				</div>
 			</div>
 	</body>
