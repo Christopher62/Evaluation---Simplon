@@ -17,7 +17,7 @@
 			<h2>Connexion</h2>
       <div class="container-fluid">
         <div class="row">
-    			<form class="well col-md-offset-3 col-md-6" method="POST" action="">
+    			<form class="well col-md-offset-4 col-md-4" method="POST" action="">
             <div class="form-group">
     				  <label for="mailconnect">Mail :</label>
     				  <input class="form-control" type="email" id="mailconnect" name="mailconnect" placeholder="Mail">
