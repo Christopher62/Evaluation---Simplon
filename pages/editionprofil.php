@@ -30,7 +30,8 @@
           <label for="avatar">Avatar :</label>
 				  <input id="avatar" type="file" name="avatar">
         </div>
-				<input type="submit" name="submit" value="Mettre à jour mon profil">
+				<input onclick=window.location.href="profil.php" type="button" class="btn btn-warning" name="submit" value="Retour vers mon profil">
+				<input type="submit" class="btn btn-success" name="submit" value="Mettre à jour mon profil">
 			</form>
 		</div>
     <script src="../js/bootstrap.js"></script>
