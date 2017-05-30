@@ -1,7 +1,35 @@
 <?php
+session_start();
 
-// futur code php qui vérifiera que l'utilisateur existe
+$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur');
 
+if(isset($_POST["formconnexion"]))
+{
+	$mailconnect = htmlspecialchars($_POST["mailconnect"]);
+	$mdpconnect = sha1($_POST["mdpconnect"]);
+	if(!empty($mailconnect) AND !empty($mdpconnect))
+	{
+		$requser = $cnx->prepare("SELECT * FROM membres WHERE mail = ? AND password = ?");
+		$requser->execute(array($mailconnect, $mdpconnect));
+		$userexist = $requser->rowCount();
+		if($userexist == 1)
+		{
+			$userinfo = $requser->fetch();
+			$_SESSION["id"] = $userinfo["id"];
+			$_SESSION["pseudo"] = $userinfo["pseudo"];
+			$_SESSION["mail"] = $userinfo["mail"];
+
+		}
+		else
+		{
+			$erreur = "Adresse e-mail et/ou mot de passe incorrect !";
+		}
+	}
+	else
+	{
+		$erreur = "Tous les champs doivent être complétés !";
+	}
+}
 
 ?>
 <!DOCTYPE html>
@@ -26,14 +54,23 @@
     				  <label for="mdpconnect">Mot de passe :</label>
               <input class="form-control" type="password" id="mdpconnect" name="mdpconnect" placeholder="Mot de passe">
             </div>
-    				<input type="submit" name="forminscription" value="Connexion">
+    				<input type="submit" name="formconnexion" value="Connexion">
     			</form>
         </div>
       </div>
       <div class="container-fluid">
         <div class="row">
-          <!-- futur code php pour prévenir des erreurs lors de la connexion (mauvais mail / mot de passe) -->
-          Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a> !
+					<span style="<?php if(isset($erreur) || isset($message)) {echo "display:none";} ?>">Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a> !</span>
+          <?php
+            if(isset($erreur)){
+              echo '<font color="red">'.$erreur.'</font>';
+            }
+          ?>
+					<?php
+						if(isset($message)){
+							echo '<font color="green">'.$message.'</font>';
+						}
+					?>
         </div>
       </div>
 		</div>
