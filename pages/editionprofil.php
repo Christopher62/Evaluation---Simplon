@@ -9,7 +9,7 @@
 	<body>
 		<div align="center">
 			<h2>Edition de mon profil</h2>
-			<form class="well" method="POST" action="" enctype="multipart/form-data">
+			<form class="well col-md-offset-4 col-md-4" method="POST" action="" enctype="multipart/form-data">
         <div class="form-group">
 				  <label for="newpseudo">Pseudo :</label>
 				  <input class="form-control" id="newpseudo" type="text" name="newpseudo" placeholder="Pseudo" value="">
