@@ -27,10 +27,17 @@ if(isset($_GET["id"]) AND $_GET["id"] >= 0)
 	<body>
 		<div align="center">
 			<h2>Profil de <?php echo $userinfo["pseudo"]; ?></h2>
-			<?php if(!empty($userinfo['avatar']))
+			<?php if(isset($userinfo['avatar']))
 			{
 			?>
-			<img src="../img/membres/avatars/default.jpg" width="150">
+			<img src="../img/membres/avatars/<?php echo $userinfo["avatar"]; ?>" width="300" style="<?php if(empty($userinfo['avatar'])) {echo "display:none";} ?>">
+			<?php
+			}
+			?>
+			<?php if(empty($userinfo['avatar']))
+			{
+			?>
+			<img src="../img/membres/avatars/<?php echo "default.jpg"; ?>" width="300">
 			<?php
 			}
 			?>
