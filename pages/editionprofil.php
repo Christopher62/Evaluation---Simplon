@@ -44,7 +44,7 @@ if(isset($_SESSION['id']))
 
 	if(isset($_FILES["avatar"]) AND !empty($_FILES["avatar"]["name"]))
 	{
-		$tailleMax = 2097152;
+		$tailleMax = 4194304;
 		$extensionsValides = array('jpg', 'jpeg', 'gif', 'png');
 		if($_FILES['avatar']['size'] <= $tailleMax)
 		{
@@ -74,7 +74,7 @@ if(isset($_SESSION['id']))
 		}
 		else
 		{
-			$msg = "Votre photo de profil ne doit pas dépasser 2 mo !";
+			$msg = "Votre photo de profil ne doit pas dépasser 4 mo !";
 		}
 	}
 }
