@@ -16,10 +16,37 @@ if(isset($_SESSION['id']))
 		$insertpseudo->execute(array($newpseudo, $_SESSION["id"]));
 		$message = "Votre pseudo à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
 	}
+
+	if(isset($_POST["newmail"]) AND !empty($_POST["newmail"]) AND $_POST["newmail"] != $user["mail"])
+	{
+		$newmail = htmlspecialchars($_POST["newmail"]);
+		$insertmail = $cnx->prepare("UPDATE membres SET mail = ? WHERE id = ?");
+		$insertmail->execute(array($newmail, $_SESSION["id"]));
+		$message = "Votre pseudo à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+	}
+
+	if(isset($_POST["newmdp1"]) AND !empty($_POST["newmdp1"]) AND isset($_POST["newmdp2"]) AND !empty($_POST["newmdp2"]))
+	{
+		$mdp1 = sha1($_POST["newmdp1"]);
+		$mdp2 = sha1($_POST["newmdp2"]);
+
+		if($mdp1 == $mdp2)
+		{
+			$insertmdp = $cnx->prepare("UPDATE membres set password = ? WHERE id = ?");
+			$insertmdp->execute(array($mdp1, $_SESSION["id"]));
+			$message = "Votre mot de passe à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+		}
+		else
+		{
+			$msg = "Vos saisies ne correspondent pas !";
+		}
+	}
 }
-else{
+else
+{
 	$msg = "Vous n'êtes pas connecté !"."<br>"."Cliquez <a href='connexion.php'>ici</a> pour vous connecté !";
-}?>
+}
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -40,7 +67,7 @@ else{
 		        </div>
 		        <div class="form-group">
 		  				<label for="newmail">Mail :</label>
-		  				<input class="form-control" id="newmail" type="email" name="newmail" placeholder="Mail" value="">
+		  				<input class="form-control" id="newmail" type="email" name="newmail" placeholder="Mail" value="<?php echo $user["mail"]; ?>">
 		        </div>
 		        <div class="form-group">
 		  				<label for="newmdp1">Mot de passe :</label>
