@@ -55,7 +55,8 @@ if(isset($_GET["id"]) AND $_GET["id"] >= 0)
 						if(isset($_SESSION["id"]) AND $userinfo["id"] == $_SESSION["id"])
 						{
 						?>
-						<input onclick=window.location.href="<?php echo "editionprofil.php?id=".$_SESSION["id"]; ?>" type="button" class="btn btn-primary" name="" value="Editer mon profil">
+						<input onclick=window.location.href="../chris.php" type="button" class="btn btn-primary" name="" value="Accueil">
+						<input onclick=window.location.href="<?php echo "editionprofil.php?id=".$_SESSION["id"]; ?>" type="button" class="btn btn-warning" name="" value="Edition profil">
 						<input onclick=window.location.href="deconnexion.php" type="button" class="btn btn-danger" name="" value="Déconnexion">
 						<?php
 						}
