@@ -1,6 +1,25 @@
 <?php
-// code qui permettera de modifier le profil (si l'utilisateur est connecté !)
-?>
+session_start();
+
+$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur');
+
+if(isset($_SESSION['id']))
+{
+	$requser = $cnx->prepare("SELECT * FROM membres WHERE id = ?");
+	$requser->execute(array($_SESSION["id"]));
+	$user = $requser->fetch();
+
+	if(isset($_POST["newpseudo"]) AND !empty($_POST["newpseudo"]) AND $_POST["newpseudo"] != $user["pseudo"])
+	{
+		$newpseudo = htmlspecialchars($_POST["newpseudo"]);
+		$insertpseudo = $cnx->prepare("UPDATE membres SET pseudo = ? WHERE id = ?");
+		$insertpseudo->execute(array($newpseudo, $_SESSION["id"]));
+		$message = "Votre pseudo à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+	}
+}
+else{
+	$msg = "Vous n'êtes pas connecté !"."<br>"."Cliquez <a href='connexion.php'>ici</a> pour vous connecté !";
+}?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,7 +36,7 @@
 					<form class="well col-md-offset-4 col-md-4" method="POST" action="" enctype="multipart/form-data">
 		        <div class="form-group">
 						  <label for="newpseudo">Pseudo :</label>
-						  <input class="form-control" id="newpseudo" type="text" name="newpseudo" placeholder="Pseudo" value="">
+						  <input class="form-control" id="newpseudo" type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user["pseudo"]; ?>">
 		        </div>
 		        <div class="form-group">
 		  				<label for="newmail">Mail :</label>
@@ -54,7 +73,11 @@
 					?>
 				</div>
 			</div>
-			<?php if(isset($_POST["submit"]) && isset($_SESSION['id'])) { header("Location: profil.php?id=".$_SESSION["id"]); } ?>
+			<?php
+			if(isset($_POST["submit"]) && isset($_SESSION['id']) && isset($message)){
+				header("Refresh: 2, url=profil.php?id=".$_SESSION["id"]);
+			 }
+			?>
 		</div>
     <script src="../js/bootstrap.js"></script>
 	</body>
