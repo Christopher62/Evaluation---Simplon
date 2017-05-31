@@ -60,6 +60,10 @@ if(isset($_GET["id"]) AND $_GET["id"] >= 0)
 					</td>
 				</tr>
 			</table>
+			<?php if(!isset($_GET["id"])){
+				header("Location: connexion.php");
+				}
+			?>
 		</div>
 	</body>
 </html>
