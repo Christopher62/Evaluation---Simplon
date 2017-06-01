@@ -30,26 +30,36 @@ if(isset($_GET["id"]) AND $_GET["id"] >= 0)
 			<?php if(isset($userinfo['avatar']))
 			{
 			?>
-			<img src="../img/membres/avatars/<?php echo $userinfo["avatar"]; ?>" width="300" style="<?php if(empty($userinfo['avatar'])) {echo "display:none";} ?>">
+			<img class="img-width" src="../img/membres/avatars/<?php echo $userinfo["avatar"]; ?>"  style="<?php if(empty($userinfo['avatar'])) {echo "display:none";} ?>">
 			<?php
 			}
 			?>
 			<?php if(empty($userinfo['avatar']))
 			{
 			?>
-			<img src="../img/membres/avatars/<?php echo "default.jpg"; ?>" width="300">
+			<img class="img-width" src="../img/membres/avatars/<?php echo "default.jpg"; ?>" >
 			<?php
 			}
 			?>
 			<table class="table table-bordered profil-table">
 				<tr>
-					<th>Pseudo</th>
-					<th>Mail</th>
-					<th>Actions</th>
+					<th>Nom</th>
+					<td><?php echo $userinfo["nom"]; ?></td>
 				</tr>
 				<tr>
+					<th>Prénom</th>
+					<td><?php echo $userinfo["prenom"]; ?></td>
+				</tr>
+				<tr>
+					<th>Pseudo</th>
 					<td><?php echo $userinfo["pseudo"]; ?></td>
+				</tr>
+				<tr>
+					<th>Mail</th>
 					<td><?php echo $userinfo["mail"]; ?></td>
+				</tr>
+				<tr>
+					<th>Actions</th>
 					<td>
 						<?php
 						if(isset($_SESSION["id"]) AND $userinfo["id"] == $_SESSION["id"])
