@@ -9,12 +9,28 @@ if(isset($_SESSION['id']))
 	$requser->execute(array($_SESSION["id"]));
 	$user = $requser->fetch();
 
+	if(isset($_POST["newnom"]) AND !empty($_POST["newnom"]) AND $_POST["newnom"] != $user["nom"])
+	{
+		$newnom = htmlspecialchars($_POST["newnom"]);
+		$insertnom = $cnx->prepare("UPDATE membres SET nom = ? WHERE id = ?");
+		$insertnom->execute(array($newnom, $_SESSION["id"]));
+		$message = "Modification effectuée !"."&nbsp"."Redirection vers votre profil en cours...";
+	}
+
+	if(isset($_POST["newprenom"]) AND !empty($_POST["newprenom"]) AND $_POST["newprenom"] != $user["prenom"])
+	{
+		$newprenom = htmlspecialchars($_POST["newprenom"]);
+		$insertprenom = $cnx->prepare("UPDATE membres SET prenom = ? WHERE id = ?");
+		$insertprenom->execute(array($newprenom, $_SESSION["id"]));
+		$message = "Modification effectué !"."&nbsp"."Redirection vers votre profil en cours...";
+	}
+
 	if(isset($_POST["newpseudo"]) AND !empty($_POST["newpseudo"]) AND $_POST["newpseudo"] != $user["pseudo"])
 	{
 		$newpseudo = htmlspecialchars($_POST["newpseudo"]);
 		$insertpseudo = $cnx->prepare("UPDATE membres SET pseudo = ? WHERE id = ?");
 		$insertpseudo->execute(array($newpseudo, $_SESSION["id"]));
-		$message = "Votre pseudo à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+		$message = "Modification effectué !"."&nbsp"."Redirection vers votre profil en cours...";
 	}
 
 	if(isset($_POST["newmail"]) AND !empty($_POST["newmail"]) AND $_POST["newmail"] != $user["mail"])
@@ -22,7 +38,7 @@ if(isset($_SESSION['id']))
 		$newmail = htmlspecialchars($_POST["newmail"]);
 		$insertmail = $cnx->prepare("UPDATE membres SET mail = ? WHERE id = ?");
 		$insertmail->execute(array($newmail, $_SESSION["id"]));
-		$message = "Votre pseudo à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+		$message = "Modification effectué !"."&nbsp"."Redirection vers votre profil en cours...";
 	}
 
 	if(isset($_POST["newmdp1"]) AND !empty($_POST["newmdp1"]) AND isset($_POST["newmdp2"]) AND !empty($_POST["newmdp2"]))
@@ -34,7 +50,7 @@ if(isset($_SESSION['id']))
 		{
 			$insertmdp = $cnx->prepare("UPDATE membres set password = ? WHERE id = ?");
 			$insertmdp->execute(array($mdp1, $_SESSION["id"]));
-			$message = "Votre mot de passe à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+			$message = "Modification effectué !"."&nbsp"."Redirection vers votre profil en cours...";
 		}
 		else
 		{
@@ -60,7 +76,7 @@ if(isset($_SESSION['id']))
 						'avatar' => $_SESSION['id'].".".$extensionUpload,
 						'id' => $_SESSION['id']
 						));
-						$message = "Votre avatar à bien été modifié !"."<br>"."Redirection vers votre profil en cours...";
+						$message = "Modification effectué !"."&nbsp"."Redirection vers votre profil en cours...";
 				}
 				else
 				{
@@ -97,6 +113,14 @@ else
 			<div class="container-fluid">
 				<div class="row">
 					<form class="well col-md-offset-4 col-md-4" method="POST" action="" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="newnom">Nom :</label>
+							<input class="form-control" id="newnom" type="text" placeholder="Votre nom" name="newnom" value="<?php echo $user["nom"] ?>">
+						</div>
+						<div class="form-group">
+							<label for="newprenom">Prénom :</label>
+							<input class="form-control" id="newprenom" type="text" placeholder="Votre prénom" name="newprenom" value="<?php echo $user["prenom"] ?>">
+						</div>
 		        <div class="form-group">
 						  <label for="newpseudo">Pseudo :</label>
 						  <input class="form-control" id="newpseudo" type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user["pseudo"]; ?>">
