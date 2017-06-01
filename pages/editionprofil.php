@@ -96,7 +96,7 @@ if(isset($_SESSION['id']))
 }
 else
 {
-	$msg = "Vous n'êtes pas connecté !"."<br>"."Cliquez <a href='connexion.php'>ici</a> pour vous connecté !";
+	header("Location: connexion.php");
 }
 ?>
 <!DOCTYPE html>
@@ -106,66 +106,66 @@ else
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Edition du profil</title>
     <link rel="stylesheet" href="../bootstrap-css/bootstrap.min.css">
+		<link rel="stylesheet" href="../style/css/christopher.css">
 	</head>
 	<body>
-		<div align="center">
-			<h2>Edition de mon profil</h2>
-			<div class="container-fluid">
-				<div class="row">
-					<form class="well col-md-offset-4 col-md-4" method="POST" action="" enctype="multipart/form-data">
-						<div class="form-group">
-							<label for="newnom">Nom :</label>
-							<input class="form-control" id="newnom" type="text" placeholder="Votre nom" name="newnom" value="<?php echo $user["nom"] ?>">
-						</div>
-						<div class="form-group">
-							<label for="newprenom">Prénom :</label>
-							<input class="form-control" id="newprenom" type="text" placeholder="Votre prénom" name="newprenom" value="<?php echo $user["prenom"] ?>">
-						</div>
-		        <div class="form-group">
-						  <label for="newpseudo">Pseudo :</label>
-						  <input class="form-control" id="newpseudo" type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user["pseudo"]; ?>">
-		        </div>
-		        <div class="form-group">
-		  				<label for="newmail">Mail :</label>
-		  				<input class="form-control" id="newmail" type="email" name="newmail" placeholder="Mail" value="<?php echo $user["mail"]; ?>">
-		        </div>
-		        <div class="form-group">
-		  				<label for="newmdp1">Mot de passe :</label>
-		  				<input class="form-control" id="newmdp1" type="password" name="newmdp1" placeholder="Mot de passe">
-		        </div>
-		        <div class="form-group">
-		  				<label for="newmdp2">Confirmation du mot de passe :</label>
-		  				<input class="form-control" id="newmdp2" type="password" name="newmdp2" placeholder="Confirmation du mot de passe">
-		        </div>
-		        <div class="form-group">
-		          <label for="avatar">Avatar :</label>
-						  <input id="avatar" type="file" name="avatar">
-		        </div>
-						<input onclick=window.location.href="<?php echo "profil.php?id=".$_SESSION["id"]; ?>" type="button" class="btn btn-warning" name="submit" value="Retour vers mon profil">
-						<input type="submit" class="btn btn-success" name="submit" value="Mettre à jour mon profil">
-					</form>
-				</div>
+		<div class="container-fluid col-md-4" id="edition">
+			<div class="row">
+				<h1>Edition du profil</h1>
+				<p>Voici la page d'édition de votre profil, vous pouvez le modifier !</p>
 			</div>
-			<div class="container-fluid">
-				<div class="row">
+		</div>
+		<div class="container-fluid">
+			<div class="row text-center">
+				<form class="well col-md-4 edition-form" method="POST" action="" enctype="multipart/form-data">
+					<div class="form-group">
+						<label for="newnom">Nom :</label>
+						<input class="form-control" id="newnom" type="text" placeholder="Votre nom" name="newnom" value="<?php echo $user["nom"] ?>">
+					</div>
+					<div class="form-group">
+						<label for="newprenom">Prénom :</label>
+						<input class="form-control" id="newprenom" type="text" placeholder="Votre prénom" name="newprenom" value="<?php echo $user["prenom"] ?>">
+					</div>
+	        <div class="form-group">
+					  <label for="newpseudo">Pseudo :</label>
+					  <input class="form-control" id="newpseudo" type="text" name="newpseudo" placeholder="Pseudo" value="<?php echo $user["pseudo"]; ?>">
+	        </div>
+	        <div class="form-group">
+	  				<label for="newmail">Mail :</label>
+	  				<input class="form-control" id="newmail" type="email" name="newmail" placeholder="Mail" value="<?php echo $user["mail"]; ?>">
+	        </div>
+	        <div class="form-group">
+	  				<label for="newmdp1">Mot de passe :</label>
+	  				<input class="form-control" id="newmdp1" type="password" name="newmdp1" placeholder="Mot de passe">
+	        </div>
+	        <div class="form-group">
+	  				<label for="newmdp2">Confirmation du mot de passe :</label>
+	  				<input class="form-control" id="newmdp2" type="password" name="newmdp2" placeholder="Confirmation du mot de passe">
+	        </div>
+	        <div class="form-group">
+	          <label for="avatar">Avatar :</label>
+					  <input id="avatar" type="file" name="avatar">
+	        </div>
+					<input onclick=window.location.href="<?php echo "profil.php?id=".$_SESSION["id"]; ?>" type="button" class="btn btn-warning" name="submit" value="Retour vers mon profil">
+					<input type="submit" class="btn btn-success" name="submit" value="Mettre à jour mon profil">
 					<?php
 					if(isset($msg)){
-						echo '<font color="red">'.$msg.'</font>';
+						echo '<br><font color="red">'.$msg.'</font>';
 					 }
 					?>
 					<?php
 					if(isset($message)){
-						echo '<font color="green">'.$message.'</font>';
+						echo '<br><font color="green">'.$message.'</font>';
 					 }
 					?>
-				</div>
+				</form>
 			</div>
-			<?php
-			if(isset($_POST["submit"]) && isset($_SESSION['id']) && isset($message)){
-				header("Refresh: 2, url=profil.php?id=".$_SESSION["id"]);
-			 }
-			?>
 		</div>
+		<?php
+		if(isset($_POST["submit"]) && isset($_SESSION['id']) && isset($message)){
+			header("Refresh: 2, url=profil.php?id=".$_SESSION["id"]);
+		 }
+		?>
     <script src="../js/bootstrap.js"></script>
 	</body>
 </html>
