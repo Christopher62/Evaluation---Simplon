@@ -1,8 +1,7 @@
 <?php
 session_start();
-// Session à récupéré !
-$msg = ""; // test avant récup de session !
-$user = "jesuisuntest"; // utilisateur affiché dans la navbar en majuscule !
+$cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur");
+// session à récupérer !
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,7 +33,7 @@ $user = "jesuisuntest"; // utilisateur affiché dans la navbar en majuscule !
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <?php // si l'utilisateur est connecté affiché le "dropdown" !
-          if(isset($msg)){
+          if($_SESSION["login"] == "yes"){
               echo '<li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase">'.$user.'</span>'.'&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
