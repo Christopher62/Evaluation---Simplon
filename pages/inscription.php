@@ -4,13 +4,15 @@ $cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur
 
 if(isset($_POST["forminscription"]))
 {
+	$nom = htmlspecialchars($_POST["nom"]);
+	$prenom = htmlspecialchars($_POST["prenom"]);
 	$pseudo = htmlspecialchars($_POST["pseudo"]);
 	$mail = htmlspecialchars($_POST["mail"]);
 	$mail2 = htmlspecialchars($_POST["mail2"]);
 	$mdp = sha1($_POST["mdp"]);
 	$mdp2 = sha1($_POST["mdp2"]);
 
-	if(!empty($_POST["pseudo"]) AND !empty($_POST["mail"]) AND !empty($_POST["mail2"]) AND !empty($_POST["mdp"]) AND !empty($_POST["mdp2"]))
+	if(!empty($_POST["nom"]) AND !empty($_POST["prenom"]) AND !empty($_POST["pseudo"]) AND !empty($_POST["mail"]) AND !empty($_POST["mail2"]) AND !empty($_POST["mdp"]) AND !empty($_POST["mdp2"]))
 	{
 		$pseudolength = strlen($pseudo);
 		if ($pseudolength <= 30)
@@ -81,13 +83,27 @@ if(isset($_POST["forminscription"]))
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Inscription</title>
     <link rel="stylesheet" href="../bootstrap-css/bootstrap.min.css">
+		<link rel="stylesheet" href="../style/css/christopher.css">
 	</head>
 	<body>
-		<div align="center">
-			<h2>Inscription</h2>
+		<div class="container-fluid col-md-4" id="inscription">
+			<div class="row">
+			<h1>Inscription</h1>
+			<p>Bienvenue ! Vous désirez vous inscrire ? Remplissez le formulaire ci-contre !</p>
+			<p>Déjà inscrit ? <a href="connexion.php">Connectez-vous</a> !</p>
+			</div>
+		</div>
 			<div class="container-fluid">
-				<div class="row">
-					<form class="well col-md-offset-4 col-md-4" method="POST" action="">
+				<div class="row text-center">
+					<form class="well col-md-4 inscription-form" method="POST" action="">
+						<div class="form-group">
+		          <label for="nom">Nom :</label>
+						  <input class="form-control" type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>">
+		        </div>
+						<div class="form-group">
+		          <label for="prenom">Prénom :</label>
+						  <input class="form-control" type="text" placeholder="Votre prénom" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>">
+		        </div>
 		        <div class="form-group">
 		          <label for="pseudo">Pseudo :</label>
 						  <input class="form-control" type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>">
@@ -109,23 +125,18 @@ if(isset($_POST["forminscription"]))
 		          <input class="form-control" type="password" placeholder="Confirmation mot de passe" id="mdp2" name="mdp2">
 		        </div>
 						<input type="submit" name="forminscription" value="Inscription">
+								<?php
+									if(isset($erreur)){
+										echo '<br><font color="red">'.$erreur.'</font>';
+									}
+								?>
+								<?php
+									if(isset($message)){
+										echo '<br><font color="green">'.$message.'</font>&nbsp';
+										echo '<a href="connexion.php">Connectez-vous</a> !';
+									}
+								?>
 					</form>
-				</div>
-			</div>
-			<div class="container-fluid">
-				<div class="row">
-					<span style="<?php if(isset($message) || isset($erreur)){echo "display:none";} ?>">Vous avez déjà un compte ? <a href="connexion.php">Connectez-vous</a> !</span>
-					<?php
-						if(isset($erreur)){
-							echo '<font color="red">'.$erreur.'</font>';
-						}
-					?>
-					<?php
-						if(isset($message)){
-							echo '<font color="green">'.$message.'</font><br>';
-							echo '<a href="connexion.php">Connectez-vous</a> !';
-						}
-					?>
 				</div>
 			</div>
 	</body>
