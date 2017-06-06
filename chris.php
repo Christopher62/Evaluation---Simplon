@@ -1,7 +1,6 @@
 <?php
 session_start();
 $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur");
-// session à récupérer !
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +34,7 @@ $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur
           <?php // si l'utilisateur est connecté affiché le "dropdown" !
           if($_SESSION["login"] == "yes"){
               echo '<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase">'.$user.'</span>'.'&nbsp;<span class="caret"></span></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase">'.$_SESSION["pseudo"].'</span>'.'&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="pages/profil.php?id=".$_SESSION["id"]">Mon Profil</a></li>
                   <li><a href="pages/editionprofil.php?id=".$_SESSION["id"]">Paramètres</a></li>
