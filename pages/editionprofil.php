@@ -166,6 +166,5 @@ else
 			header("Refresh: 2, url=profil.php?id=".$_SESSION["id"]);
 		 }
 		?>
-    <script src="../js/bootstrap.js"></script>
 	</body>
 </html>
