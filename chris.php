@@ -31,17 +31,19 @@ $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur
           <li><a href="">...</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <?php // si l'utilisateur est connecté affiché le "dropdown" !
-          if($_SESSION["login"] == "yes"){
-              echo '<li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase">'.$_SESSION["pseudo"].'</span>'.'&nbsp;<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="pages/profil.php?id=".$_SESSION["id"]">Mon Profil</a></li>
-                  <li><a href="pages/editionprofil.php?id=".$_SESSION["id"]">Paramètres</a></li>
-                  <li class="divider"></li>
-                  <li><a href="pages/deconnexion.php">Déconnexion</a></li>
-                </ul>
-              </li>';
+          <?php if($_SESSION["login"] == "yes")// si l'utilisateur est connecté affiché le "dropdown" !
+          {
+          ?>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase"><?php echo $_SESSION["pseudo"]; ?></span>&nbsp;<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="pages/profil.php?id=<?php echo $_SESSION["id"]; ?>">Mon Profil</a></li>
+              <li><a href="pages/editionprofil.php?id=<?php echo $_SESSION["id"]; ?>">Paramètres</a></li>
+              <li class="divider"></li>
+              <li><a href="pages/deconnexion.php">Déconnexion</a></li>
+            </ul>
+          </li>
+          <?php
             }
             else{ // sinon affiché les liens pour l'inscription ou la connexion !
               echo '<li><a href="pages/inscription.php">Sign Up</a></li>
