@@ -89,13 +89,13 @@ if(isset($_POST["forminscription"]))
 		<div class="container-fluid col-md-4" id="inscription">
 			<div class="row">
 			<h1>Inscription</h1>
-			<p>Bienvenue ! Vous désirez vous inscrire ? Remplissez le formulaire ci-contre !</p>
+			<p>Bienvenue ! Vous désirez vous inscrire ? Remplissez ce formulaire !</p>
 			<p>Déjà inscrit ? <a href="connexion.php">Connectez-vous</a> !</p>
 			</div>
 		</div>
 			<div class="container-fluid">
 				<div class="row text-center">
-					<form class="well col-md-4 inscription-form" method="POST" action="">
+					<form class="well col-md-offset-0 col-md-4 col-sm-offset-3 col-sm-6 inscription-form" method="POST" action="">
 						<div class="form-group">
 		          <label for="nom">Nom :</label>
 						  <input class="form-control" type="text" placeholder="Votre nom" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>">
