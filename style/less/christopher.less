@@ -36,16 +36,15 @@
   outline: none;
   display: none;
 }
+/* ---- PAGE PROFIL ---- */
 .profil-table{
   margin-top: 2%;
   width: 80%;
   th, td{
     text-align: center;
   }
-  td li{
-    list-style-type: none;
-  }
 }
+/* ---- PAGE 404 ---- */
 .notfound-table{
   width: 20%;
   th, td{
@@ -79,15 +78,15 @@
 }
 .edition-form{
   margin-top: 1.5%;
-}
-#avatar{
-  margin-left: 16%;
+  #avatar{
+    margin-left: 16%;
+  }
 }
 /* ---- PAGE PROFIL ---- */
 .img-width{
   width: @img-width;
 }
-/* ---- RESPONSIVE ---- */
+/* ---- RESPONSIVE COL XS ---- */
 @media (max-width: 767px) {
   /* --- PAGE INSCRIPTION --- */
   #inscription{
@@ -102,11 +101,14 @@
     margin-left: 4%;
     width: 92%;
   }
+  /* --- PAGE PROFIL --- */
+  /* ---- PAGE EDITION PROFIL ---- */
   /* --- PAGE ACCUEIL --- */
   .dropdown-menu li a{
     color: #FFF!important;
   }
 }
+/* ---- RESPONSIVE COL SM ---- */
 @media (min-width: 768px) and (max-width: 992px) {
   /* --- PAGE INSCRIPTION --- */
   #inscription{
@@ -115,4 +117,5 @@
   .inscription-form{
     margin-top: 0;
   }
+  /* ---- PAGE EDITION PROFIL ---- */
 }
