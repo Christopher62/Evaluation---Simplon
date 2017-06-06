@@ -44,6 +44,7 @@ if(isset($_POST["formconnexion"]))
 	<body>
 		<div align="center">
 			<h2>Connexion</h2>
+<<<<<<< HEAD
       <div class="container-fluid">
         <div class="row">
     			<form class="well col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8" method="POST" action="">
@@ -62,6 +63,17 @@ if(isset($_POST["formconnexion"]))
 							}
 						?>
     			</form>
+=======
+			<form class="well" method="POST" action="">
+        <div class="form-group">
+				  <label for="mailconnect">Mail :</label>
+				  <input class="form-control" type="email" name="mailconnect" placeholder="Mail">
+        </div>
+        <div class="form-group">
+				  <label for="mdpconnect">Mot de passe :</label>
+          <input class="form-control" type="password" name="mdpconnect" placeholder="Mot de passe">
+				  <input class="form-control" type="email" id="mailconnect" name="mailconnect" placeholder="Mail">
+>>>>>>> 5bfc278c64c787470c8fef95940d07992f57cfad
         </div>
       </div>
       <div class="container-fluid">
