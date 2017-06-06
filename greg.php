@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Du TAC-TAC au hand-spinner</title>
+    <title>Serievore</title>
     <link rel="stylesheet" href="bootstrap-css/bootstrap.min.css">
     <link rel="stylesheet" href="style/css/christopher.css">
     <link rel="stylesheet" href="style/css/greg.css">
   </head>
-  <body>
+  <body id="home">
     <nav class="navbar navbar-inverse fixed-top" id="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -21,12 +21,12 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active" styyle="margin-top:0"><a href="">Home</a></li>
-          <li><a href="">Article</a></li>
+          <li><a href="pages/vizuarticle.php">Article</a></li>
           <li><a href="">Gallerie</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="">Sign Up</a></li>
-          <li><a href="">Log In</a></li>
+          <li><a href="pages/inscription.php">Sign Up</a></li>
+            <li><a href="pages/connexion.php">Log In</a></li>
         </ul>
       </div>
     </div>
@@ -35,10 +35,12 @@
     <div class="row">
       <div class="col-md-12" id="Presentation">
         <h2>Bienvenus</h2>
-        <p>Bienvenus sur notre blog celui contiendras des articles qui feras resurgir notre âmes d'enfant avec divers
-          jeux qui était beaucoup utilisée dans les cour de récréation</p>
+        <p>Bienvenus sur notre blog il contiendras des articles sur les séries de tout les continent (Amérique,France,Allemagne ...)</p>
         <p>Nous somme deux a travailler sur ce blog il y a Chris et Greg tout les deux en en formation a simplon et le but de se blog
           et une évaluation de fin de formation PEACE </p>
+      </div>
+      <div class="col-md-12" id="Voir">
+        <a href="pages/vizuarticle.php"><button>Voir les Articles</button></a>
       </div>
     </div>
   </div>
