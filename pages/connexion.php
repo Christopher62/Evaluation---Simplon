@@ -56,22 +56,17 @@ if(isset($_POST["formconnexion"]))
               <input class="form-control" type="password" id="mdpconnect" name="mdpconnect" placeholder="Mot de passe">
             </div>
     				<input type="submit" name="formconnexion" value="Connexion">
+						<?php
+							if(isset($erreur)){
+								echo '<br><font color="red">'.$erreur.'</font>';
+							}
+						?>
     			</form>
         </div>
       </div>
       <div class="container-fluid">
         <div class="row">
-					<span style="<?php if(isset($erreur) || isset($message)) {echo "display:none";} ?>">Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a> !</span>
-          <?php
-            if(isset($erreur)){
-              echo '<font color="red">'.$erreur.'</font>';
-            }
-          ?>
-					<?php
-						if(isset($message)){
-							echo '<font color="green">'.$message.'</font>';
-						}
-					?>
+					<p>Pas encore de compte ? <a href="inscription.php">Inscrivez-vous</a> !</p>
         </div>
       </div>
 		</div>
