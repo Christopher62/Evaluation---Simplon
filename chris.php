@@ -35,7 +35,7 @@ $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur
           {
           ?>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase"><?php echo $_SESSION["pseudo"]; ?></span>&nbsp;<span class="caret"></span></a>
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span style="text-transform:uppercase"><?php echo $_SESSION["pseudo"]; ?></span>&nbsp;<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="pages/profil.php?id=<?php echo $_SESSION["id"]; ?>">Mon Profil</a></li>
               <li><a href="pages/editionprofil.php?id=<?php echo $_SESSION["id"]; ?>">Paramètres</a></li>
