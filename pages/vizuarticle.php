@@ -53,8 +53,8 @@
 
   <script src="https://use.fontawesome.com/8d66db2fbe.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/christopher.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/christopher.js"></script>
   </body>
   <footer><p>&copy;Chris Greg SIMPLON 2017</p> </footer>
   </html>
