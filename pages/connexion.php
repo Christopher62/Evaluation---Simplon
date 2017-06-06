@@ -46,7 +46,7 @@ if(isset($_POST["formconnexion"]))
 			<h2>Connexion</h2>
       <div class="container-fluid">
         <div class="row">
-    			<form class="well col-md-offset-4 col-md-4" method="POST" action="">
+    			<form class="well col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6 col-xs-offset-2 col-xs-8" method="POST" action="">
             <div class="form-group">
     				  <label for="mailconnect">Mail :</label>
     				  <input class="form-control" type="email" id="mailconnect" name="mailconnect" placeholder="Mail">
@@ -75,6 +75,5 @@ if(isset($_POST["formconnexion"]))
         </div>
       </div>
 		</div>
-    <script src="../js/bootstrap.js"></script>
 	</body>
 </html>
