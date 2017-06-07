@@ -112,12 +112,12 @@ else
 		<div class="container-fluid col-md-4" id="edition">
 			<div class="row">
 				<h1>Edition du profil</h1>
-				<p>Voici la page d'édition de votre profil, vous pouvez le modifier !</p>
+				<p>Voici la page d'édition de votre profil, vous pouvez modifier vos paramètres !</p>
 			</div>
 		</div>
 		<div class="container-fluid">
 			<div class="row text-center">
-				<form class="well col-md-4 edition-form" method="POST" action="" enctype="multipart/form-data">
+				<form class="well col-md-offset-0 col-md-4 col-sm-offset-3 col-sm-6 edition-form" method="POST" action="" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="newnom">Nom :</label>
 						<input class="form-control" id="newnom" type="text" placeholder="Votre nom" name="newnom" value="<?php echo $user["nom"] ?>">
@@ -166,6 +166,5 @@ else
 			header("Refresh: 2, url=profil.php?id=".$_SESSION["id"]);
 		 }
 		?>
-    <script src="../js/bootstrap.js"></script>
 	</body>
 </html>
