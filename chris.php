@@ -13,7 +13,7 @@ $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur
     <link rel="stylesheet" href="style/css/greg.css">
   </head>
   <body>
-    <a href="#" id="toTop" class="fa fa-chevron-up fa-2x"></a>
+    <a href="" id="toTop" class="fa fa-chevron-up fa-2x"></a>
     <nav class="navbar navbar-inverse fixed-top" id="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
