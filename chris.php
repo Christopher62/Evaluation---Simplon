@@ -27,7 +27,7 @@ $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="">Home</a></li>
-          <li><a href="">Articles</a></li>
+          <li><a href="pages/vizuarticle.php">Articles</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <?php if($_SESSION["login"] == "yes")// si l'utilisateur est connecté affiché le "dropdown" !
