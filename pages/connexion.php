@@ -1,8 +1,6 @@
 <?php
 session_start();
-
 $cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur');
-
 if(isset($_POST["formconnexion"]))
 {
 	$mailconnect = htmlspecialchars($_POST["mailconnect"]);
@@ -31,7 +29,6 @@ if(isset($_POST["formconnexion"]))
 		$erreur = "Tous les champs doivent être complétés !";
 	}
 }
-
 ?>
 <!DOCTYPE html>
 <html>
