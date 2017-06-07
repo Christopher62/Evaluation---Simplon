@@ -46,8 +46,10 @@ $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "codeurKiFFeur
           <?php
             }
             else{ // sinon affiché les liens pour l'inscription ou la connexion !
-              echo '<li><a href="pages/inscription.php">Sign Up</a></li>
-              <li><a href="pages/connexion.php">Log In</a></li>';
+              ?>
+              <!-- <li><a href="pages/inscription.php">Sign Up</a></li> (enlevé : optionnel de l'évaluation )-->
+              <li><a href="pages/connexion.php">Administration</a></li>
+              <?php
             }
             ?>
         </ul>
