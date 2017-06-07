@@ -1,6 +1,7 @@
 <?php
-session_start();
-$cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "");
+// session_start();
+// $cnx = new PDO("mysql:host=localhost;dbname=Evalsimplon", "root", "");
+// page blanche : pas de connexion à la base de donnée !
 ?>
 <!DOCTYPE html>
 <html>
