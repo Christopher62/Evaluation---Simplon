@@ -1,0 +1,155 @@
+// out: ../css/christopher.css, compress: true
+@text-transform: uppercase;
+@colorlink: #FFF;
+@height-logo: 22px;
+@width-logo: 24px;
+@coldropdown-a: #000;
+@img-width: 200px;
+
+#navigation{
+  border-radius: 0;
+  text-transform: @text-transform;
+  a{
+    color: @colorlink;
+    outline: none;
+  }
+  #logo{
+    height: @height-logo;
+    width: @width-logo;
+  }
+  .dropdown li a{
+    color: @coldropdown-a;
+    text-transform: none;
+  }
+}
+#toTop{
+  color: #00A1D0;
+  right : 1%;
+  top: 90%;
+  position: fixed;
+  z-index: 100;
+  overflow: hidden;
+  text-decoration: none;
+  outline: none;
+  display: none;
+}
+/* ---- PAGE PROFIL ---- */
+.profil-table{
+  margin-top: 2%;
+  width: 80%;
+  th, td{
+    text-align: center;
+  }
+}
+/* ---- PAGE 404 ---- */
+.notfound-table{
+  width: 20%;
+  th, td{
+    text-align: center;
+  }
+  td li{
+    list-style-type: none;
+  }
+}
+/* ---- PAGE INSCRIPTION ---- */
+#inscription{
+  margin-top: 18%;
+  h1{
+    text-align: center;
+  }
+  p{
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+.inscription-form{
+  margin-top: 1%;
+}
+/* ---- PAGE EDITION PROFIL ---- */
+#edition{
+  margin-top: 18%;
+  h1, p{
+    text-align: center;
+  }
+}
+.edition-form{
+  margin-top: 1.5%;
+  #avatar{
+    margin-left: 16%;
+  }
+}
+/* ---- PAGE PROFIL ---- */
+.img-width{
+  width: @img-width;
+}
+/* ---- RESPONSIVE COL XS ---- */
+@media (max-width: 767px) {
+  /* --- PAGE INSCRIPTION --- */
+  #inscription{
+    margin-top: 0;
+    p{
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  .inscription-form{
+    margin-top: 0;
+    margin-left: 4%;
+    width: 92%;
+  }
+  /* --- PAGE PROFIL --- */
+  .profil-table{
+    width: 95%;
+    td{
+      input{
+        display: block;
+        margin: 2% auto 0;
+      }
+    }
+  }
+  /* ---- PAGE EDITION PROFIL ---- */
+  #edition{
+    margin-top: 0;
+    p{
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  .edition-form{
+    margin-top: 0;
+    margin-left: 4%;
+    width: 92%;
+    #avatar{
+      margin-left: 0;
+    }
+    .btn{
+      display: block;
+      margin: 2% auto 0;
+    }
+  }
+  /* --- PAGE ACCUEIL --- */
+  .dropdown-menu li a{
+    color: #FFF!important;
+  }
+}
+/* ---- RESPONSIVE COL SM ---- */
+@media (min-width: 768px) and (max-width: 992px) {
+  /* --- PAGE INSCRIPTION --- */
+  #inscription{
+    margin-top: 0;
+  }
+  .inscription-form{
+    margin-top: 0;
+  }
+  /* ---- PAGE EDITION PROFIL ---- */
+  #edition{
+    margin-top: 0;
+  }
+  .edition-form{
+    margin-top: 1%;
+    #avatar{
+      margin-left: 14%;
+    }
+  }
+}
