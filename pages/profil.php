@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur');
+$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', '');
 
 if(isset($_GET["id"]) AND $_GET["id"] >= 0)
 {

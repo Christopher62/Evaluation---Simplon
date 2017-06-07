@@ -1,6 +1,6 @@
 <?php
 session_start();
-$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', 'codeurKiFFeur');
+$cnx = new PDO('mysql:host=localhost;dbname=Evalsimplon', 'root', '');
 if(isset($_POST["formconnexion"]))
 {
 	$mailconnect = htmlspecialchars($_POST["mailconnect"]);
